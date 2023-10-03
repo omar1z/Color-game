@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <!-- order : 5,2,9,4,8,6,3 -->
+    <script type="text/javascript">  
+        
+        function bb(y) {
+            if(y == '7'){
+            document.getElementById("b3").style.background = "pink";
+            document.getElementById("b7").style.background = "yellow";  
+            }
+            else if(y == '5'){
+                document.getElementById("b8").style.background = "black";
+                document.getElementById("b3").style.background = "green";  
+            }
+            else if(y == '2'){
+                document.getElementById("b1").style.background = "black";
+                document.getElementById("b9").style.background = "red";  
+            }
+            else if(y == '9'){
+            document.getElementById("b6").style.background = "black";
+            document.getElementById("b5").style.background = "orange";  
+            }
+            else if(y == '1'){
+                document.getElementById("b2").style.background = "purple";
+                document.getElementById("b4").style.background = "green";  
+            }
+            else if(y == '4'){
+                document.getElementById("b9").style.background = "black";
+                document.getElementById("b3").style.background = "cyan";  
+            }
+            else if(y == '8'){
+                document.getElementById("b3").style.background = "black";
+                document.getElementById("b7").style.background = "yellow";  
+                }
+            else if(y == '6'){
+                document.getElementById("b4").style.background = "black";
+                document.getElementById("b5").style.background = "brown";  
+            }
+            else if(y == '3'){
+                document.getElementById("b2").style.background = "black";
+                document.getElementById("b7").style.background = "black";  
+            }
+            const a = ["b1","b2","b3","b4","b5","b6","b7","b8","b9"];
+            var c = 0;
+            for(let i=0;i<9;i++){
+                if(document.getElementById(a[i]).style.background == "black"){
+                    c +=1;
+                }
+                else if (i != 4){
+                    c = 0;
+                }
+            }
+            if(c == 8 && document.getElementById(a[4]).style.background == "brown"){
+                document.getElementById("tt").innerText = "YOU WON";
+            }
+        }
+    </script>
+
+    <body>
+        
+        <form  >
+            <h1>COLORED PUZZLE</h1>
+
+            <h3>Click on each block to turn finally all blocks to black and the center to brown</h3>
+            
+            <table style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                <tr>
+                    <td><div style="background-color: blue;width :100px;height:100px;" id="b1" onclick="bb('1')"></div></td>
+                    <td><div style="background-color: red;width :100px;height:100px;" id="b2" onclick="bb('2')"></div></td>
+                    <td><div style="background-color: blue;width :100px;height:100px;" id="b3" onclick="bb('3')" ></div></td>
+                </tr>
+                <tr>
+                    <td><div style="background-color: red;width :100px;height:100px;" id="b4" onclick="bb('4')"></div></td>
+                    <td><div style="background-color: blue;width :100px;height:100px;" id="b5" onclick="bb('5')"></div></td>
+                    <td><div style="background-color: red;width :100px;height:100px;" id="b6" onclick="bb('6')"></div></td>
+                </tr>
+                <tr>
+                    <td><div style="background-color: blue;width :100px;height:100px;" id="b7" onclick="bb('7')"></div></td>
+                    <td><div style="background-color: red;width :100px;height:100px;" id="b8" onclick="bb('8')"></div></td>
+                    <td><div style="background-color: blue;width :100px;height:100px;" id="b9" onclick="bb('9')"></div></td>
+                </tr>
+            </table>
+            <br><p id="tt" style="position:absolute;top:80%;left:50%;transform:translate(-50%,-50%);font-size: 30px"></p>
+        </form>
+
+    </body>
+</html>
